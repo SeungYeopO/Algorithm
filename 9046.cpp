@@ -10,12 +10,18 @@ string s;
 int dat[40];
 vector<char>v;
 
-int check(string tmp) {
+void init() {
 	v.clear();
-	int ans = -1;
+	
 	for (int i = 0; i < 40; i++) {
 		dat[i] = 0;
 	}
+}
+
+int check(string tmp) {
+	init();
+
+	int ans = -1;
 
 	for (int i = 0; i < tmp.size(); i++) {
 		if (dat[i] != ' ') {
@@ -41,9 +47,9 @@ int main() {
 		//cout << s << endl;
 		int res = check(s);
 
-		for (int j = 0; j < s.length(); j++) {
+		for (int j = 0; j < 40; j++) {
 			if (dat[j] == res) {
-				v.push_back(dat[j] + 'a');
+				v.push_back(j + 'a');
 			}
 		}
 
